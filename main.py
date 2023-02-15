@@ -31,9 +31,9 @@ train, test = train_test_split(df, test_size=test_size, random_state=42)
 dataset_name = generate_slug(2)
 #create a folder with the name of the dataset
 os.mkdir(f"output/{dataset_name}")
-df.to_json(f"output/{dataset_name}/full-{len(df)}-labeled-{dataset_name}.jsonl", orient="records", lines=True)
-train.to_json(f"output/{dataset_name}/train-%{(1- test_size)*100}-{dataset_name}.jsonl", orient="records", lines=True)
-test.to_json(f"output/{dataset_name}/test-%{test_size*100}-{dataset_name}.jsonl", orient="records", lines=True)
+df.to_json(f"output/{dataset_name}/full-{len(df)}-labeled-{dataset_name}.jsonl", orient="records", lines=True, force_ascii=False)
+train.to_json(f"output/{dataset_name}/train-%{(1- test_size)*100}-{dataset_name}.jsonl", orient="records", lines=True, force_ascii=False)
+test.to_json(f"output/{dataset_name}/test-%{test_size*100}-{dataset_name}.jsonl", orient="records", lines=True, force_ascii=False)
 
 
 
